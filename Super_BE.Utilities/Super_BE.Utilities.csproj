@@ -56,7 +56,6 @@
     <Compile Include="Diagnostics\RequestException.cs" />
     <Compile Include="Drawing\Images.cs" />
     <Compile Include="Extensions\BinaryConvertExtension.cs" />
-    <Compile Include="Extensions\Formatting.cs" />
     <Compile Include="Extensions\FormattingExtensions.cs" />
     <Compile Include="Extensions\JsonConvertExtension.cs" />
     <Compile Include="Extensions\NullExtension.cs" />

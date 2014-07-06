@@ -7,8 +7,11 @@ using Super_BE.Utilities.Diagnostics;
 namespace Super_BE.Utilities.Extensions
 {
 	/// <summary>
-	/// 
+	/// Расширение сериализации в бинарный код.
 	/// </summary>
+	/// <remarks>
+	/// Внимание! Важное условие: класс должен быть сериализуемым. т.е. Классу должен быть задан атрибут [Serializable].
+	/// </remarks>
 	public static class BinaryConvertExtension
 	{
 		/// <summary>
@@ -18,6 +21,7 @@ namespace Super_BE.Utilities.Extensions
 		/// <param name="instance">Экземпляр объекта.</param>
 		/// <returns>Экземпляр объекта в представлении байтового массива.</returns>
 		/// <example>
+		/// TestsClass instance = new TestsClass { Id = 567, Name = "Проба пера" };
 		/// File.WriteAllBytes(fileName, instance.ToBinary());
 		/// </example>
 		public static byte[] ToBinary<T>(this T instance)
@@ -50,15 +54,20 @@ namespace Super_BE.Utilities.Extensions
 		/// <typeparam name="T">Тип объекта.</typeparam>
 		/// <param name="data">Байтовый массив</param>
 		/// <returns>Экземпляр объекта.</returns>
+		/// <example>
+		/// TestsClass result = File.ReadAllBytes(fileName).FromBinary<TestsClass>();
+		/// </example>
+		/// <remarks>
+		/// Внимание! Важное условие: класс должен быть сериализуемым. т.е. Классу должен быть задан атрибут [Serializable].
+		/// </remarks>
 		public static T FromBinary<T>(this byte[] data)
 		{
 			IFormatter formatter = new BinaryFormatter();
-			using (var stream = new MemoryStream())
+			using (var stream = new MemoryStream(data))
 			{
 				T result;
 				try
 				{
-					foreach (byte b in data) stream.WriteByte(b);
 					result = (T) formatter.Deserialize(stream);
 				}
 				catch (Exception exception)

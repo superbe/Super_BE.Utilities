@@ -54,8 +54,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ExtensionTests.cs" />
     <Compile Include="LoggerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestsClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Super_BE.Utilities\Super_BE.Utilities.csproj">
