@@ -19,6 +19,7 @@ $RECYCLE.BIN/
 *.nupkg
 *.vspscc
 *.nuspec
+*.user
 \bin
 \obj
 

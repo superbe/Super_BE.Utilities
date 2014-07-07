@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 namespace Super_BE.Utilities.Extensions
 {
 	/// <summary>
-	/// расширение преобразования объектов в бинарный, JSON и XML форматы.
+	/// Расширение преобразования объектов в бинарный, JSON и XML форматы.
 	/// </summary>
 	/// <example>
 	/// // Создали тестовый объект класса TestsClass.
