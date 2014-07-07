@@ -5,7 +5,7 @@ namespace Super_BE.Utilities.Extensions
 	/// <summary>
 	/// 
 	/// </summary>
-	public static class XMLConvertExtension
+	public static class SOAPConvertExtension
 	{
 		/// <summary>
 		/// 
@@ -13,7 +13,7 @@ namespace Super_BE.Utilities.Extensions
 		/// <param name="instance"></param>
 		/// <typeparam name="T"></typeparam>
 		/// <returns></returns>
-		public static XDocument ToXML<T>(this T instance)
+		public static XDocument ToSOAP<T>(this T instance)
 		{
 			return new XDocument();
 		}
@@ -24,7 +24,7 @@ namespace Super_BE.Utilities.Extensions
 		/// <param name="document"></param>
 		/// <typeparam name="T"></typeparam>
 		/// <returns></returns>
-		public static T FromXML<T>(this XDocument document) where T : new()
+		public static T FromSOAP<T>(this XDocument document) where T : new()
 		{
 			return new T();
 		}

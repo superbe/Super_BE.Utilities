@@ -14,14 +14,6 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-# Othere
-*.nuspec
-*.vspscc
-*.bat
-*.nupkg
-*.suo
-*.vssscc
-
 # =========================
 # Operating System Files
 # =========================
@@ -34,11 +26,7 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
-# bin
-bin
-# obj
-obj
+Icon
 
 # Thumbnails
 ._*

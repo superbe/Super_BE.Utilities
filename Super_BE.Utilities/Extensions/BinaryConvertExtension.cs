@@ -1,8 +1,8 @@
-﻿using Super_BE.Utilities.Diagnostics;
-using System;
+﻿using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using Super_BE.Utilities.Diagnostics;
 
 namespace Super_BE.Utilities.Extensions
 {
@@ -24,9 +24,6 @@ namespace Super_BE.Utilities.Extensions
 		/// TestsClass instance = new TestsClass { Id = 567, Name = "Проба пера" };
 		/// File.WriteAllBytes(fileName, instance.ToBinary());
 		/// </example>
-		/// <remarks>
-		/// Внимание! Важное условие: класс должен быть сериализуемым. т.е. Классу должен быть задан атрибут [Serializable].
-		/// </remarks>
 		public static byte[] ToBinary<T>(this T instance)
 		{
 			IFormatter formatter = new BinaryFormatter();

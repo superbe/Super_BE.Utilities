@@ -41,7 +41,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,8 +59,9 @@
     <Compile Include="Extensions\FormattingExtensions.cs" />
     <Compile Include="Extensions\JsonConvertExtension.cs" />
     <Compile Include="Extensions\NullExtension.cs" />
-    <Compile Include="Extensions\ConvertExtension.cs" />
-    <Compile Include="Extensions\TypeConvert.cs" />
+    <Compile Include="Extensions\SaveExtension.cs" />
+    <Compile Include="Extensions\SaveFormat.cs" />
+    <Compile Include="Extensions\SOAPConvertExtension.cs" />
     <Compile Include="Extensions\XMLConvertExtension.cs" />
     <Compile Include="IO\File.cs" />
     <Compile Include="IO\FileInfo.cs" />

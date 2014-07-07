@@ -3,13 +3,13 @@
 	/// <summary>
 	/// Формат сохранения сериализованного экземпляра объекта в файл.
 	/// </summary>
-	public enum TypeConvert
+	public enum SaveFormat
 	{
 		/// <summary>
 		/// В строку.
 		/// </summary>
 		/// <remarks>Формат расширения *.txt</remarks>
-		Default,
+		String,
 		
 		/// <summary>
 		/// В Json/
@@ -27,6 +27,12 @@
 		/// Бинарная.
 		/// </summary>
 		/// <remarks>Формат расширения *.bn</remarks>
-		Binary
+		Binary,
+		
+		/// <summary>
+		/// Спецификация SOAP.
+		/// </summary>
+		/// <remarks>Формат расширения *.xml</remarks>
+		SOAP
 	}
 }
