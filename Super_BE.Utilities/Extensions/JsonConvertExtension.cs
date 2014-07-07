@@ -15,6 +15,7 @@ namespace Super_BE.Utilities.Extensions
 	/// <summary>
 	/// Дополнение класса System.String.
 	/// </summary>
+	/// TODO: Переписать с учетом классов парсинга JS-скриптов.
 	public static class JsonConvertExtension
 	{
 		/// <summary>

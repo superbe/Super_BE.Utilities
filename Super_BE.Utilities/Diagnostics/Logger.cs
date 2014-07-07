@@ -197,7 +197,7 @@ namespace Super_BE.Utilities.Diagnostics
 					Referer = request.UrlReferrer,
 					Url = request.Url,
 					User = _user
-				}).SaveAs(fileName, SaveFormat.Json);
+				}).Save(fileName, TypeConvert.Json);
 			}
 			catch (Exception exception)
 			{
@@ -277,7 +277,7 @@ namespace Super_BE.Utilities.Diagnostics
 					Referer = request.UrlReferrer,
 					Url = request.Url,
 					User = _user
-				}, DateTime.Now, _user)).SaveAs(fileName, SaveFormat.Json);
+				}, DateTime.Now, _user)).Save(fileName, TypeConvert.Json);
 		}
 		#endregion Error.
 
