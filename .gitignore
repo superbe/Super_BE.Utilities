@@ -13,6 +13,14 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+*.suo
+*.vssscc
+*.bat
+*.nupkg
+*.vspscc
+*.nuspec
+\bin
+\obj
 
 # =========================
 # Operating System Files
