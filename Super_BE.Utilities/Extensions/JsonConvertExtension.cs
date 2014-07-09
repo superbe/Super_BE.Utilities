@@ -40,10 +40,7 @@ namespace Super_BE.Utilities.Extensions
 			{
 				// Если экземпляр объекта не сериализуется.
 				// Обработать запрос надо в любом случае.
-				if (anyway)
-				{
-					return GetJson(instance, new Stack());
-				}
+				if (anyway) return GetJson(instance, new Stack());
 				throw;
 			}
 		}

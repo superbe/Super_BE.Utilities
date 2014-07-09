@@ -1,6 +1,5 @@
 ﻿using Super_BE.Utilities.Extensions;
 using System;
-using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
@@ -82,7 +81,7 @@ namespace Super_BE.Utilities.Diagnostics
 #if DEBUG
 			Trace.TraceInformation(message);
 #endif
-			SaveMessage(message, "Logs/Informations/", "{0}_informations");
+			SaveMessage(message, "Logs\\Informations\\", "{0}_informations");
 		}
 
 		/// <summary>
@@ -106,7 +105,7 @@ namespace Super_BE.Utilities.Diagnostics
 #if DEBUG
 			Trace.TraceWarning(message);
 #endif
-			SaveMessage(message, "Logs/Warning/", "{0}_warning");
+			SaveMessage(message, "Logs\\Warning\\", "{0}_warning");
 		}
 
 		/// <summary>
@@ -141,12 +140,12 @@ namespace Super_BE.Utilities.Diagnostics
 		/// <param name="properties">Сообщение.</param>
 		public void TraceApi(string componentName, string method, TimeSpan timespan, string properties)
 		{
-			string message = String.Concat("Component:", componentName, "; Method:", method, "; Timespan:", timespan.ToString(), "; Properties:", properties);
+			string message = String.Concat("Component:", componentName, ";\r\nMethod:", method, ";\r\nTimespan:", timespan.ToString(), ";\r\nProperties:", properties);
 #if DEBUG
 			Trace.TraceInformation(message);
 #endif
-			if (Convert.ToBoolean(ConfigurationManager.AppSettings.Get("trace")))
-				SaveMessage(message, "Logs/Trace/", "{0}_trace");
+			//if (Convert.ToBoolean(ConfigurationManager.AppSettings.Get("trace")))
+			SaveMessage(message, "Logs\\Trace\\", "{0}_trace");
 		}
 
 		/// <summary>
@@ -181,7 +180,7 @@ namespace Super_BE.Utilities.Diagnostics
 		public void Http(HttpRequest request, int i)
 		{
 			if (i > 10) return;
-			if (string.IsNullOrWhiteSpace(_path)) _path = "Logs/Http/";
+			if (string.IsNullOrWhiteSpace(_path)) _path = "Logs\\Http\\";
 			string fileName = GetFullFileName(string.Format("{0}_http", GetFileName(_path)));
 			try
 			{
@@ -193,11 +192,11 @@ namespace Super_BE.Utilities.Diagnostics
 					Languages = request.UserLanguages,
 					HttpMethod = request.HttpMethod,
 					Ip = request.UserHostAddress,
-					IsMobile = request.Browser.IsMobileDevice,
+					IsMobile = request.Browser != null && request.Browser.IsMobileDevice,
 					Referer = request.UrlReferrer,
 					Url = request.Url,
 					User = _user
-				}).Save(fileName, TypeConvert.Json);
+				}).Save(fileName, TypeConvert.Json, true);
 			}
 			catch (Exception exception)
 			{
@@ -208,6 +207,7 @@ namespace Super_BE.Utilities.Diagnostics
 		#endregion Http.
 
 		#region Error.
+
 		/// <summary>
 		/// Залогировать ошибку. Первая перегрузка.
 		/// </summary>
@@ -231,6 +231,15 @@ namespace Super_BE.Utilities.Diagnostics
 		/// Залогировать ошибку. Третья перегрузка.
 		/// </summary>
 		/// <param name="exception">Вложенное исключение.</param>
+		public void Error(Exception exception)
+		{
+			Error(exception, exception.Message);
+		}
+
+		/// <summary>
+		/// Залогировать ошибку. Четвертая перегрузка.
+		/// </summary>
+		/// <param name="exception">Вложенное исключение.</param>
 		/// <param name="format">Формат сообщения.</param>
 		/// <param name="variables">Параметры сообщения.</param>
 		public void Error(Exception exception, string format, params object[] variables)
@@ -239,7 +248,7 @@ namespace Super_BE.Utilities.Diagnostics
 		}
 
 		/// <summary>
-		/// Залогировать ошибку. Четвертая перегрузка.
+		/// Залогировать ошибку. Пятая перегрузка.
 		/// </summary>
 		/// <param name="code">Код ошибки.</param>
 		/// <param name="exception">Вложенное исключение.</param>
@@ -251,7 +260,7 @@ namespace Super_BE.Utilities.Diagnostics
 		}
 
 		/// <summary>
-		/// Залогировать ошибку. Пятая перегрузка.
+		/// Залогировать ошибку. Шестая перегрузка.
 		/// </summary>
 		/// <param name="code">Код ошибки.</param>
 		/// <param name="exception">Вложенное исключение.</param>
@@ -263,7 +272,7 @@ namespace Super_BE.Utilities.Diagnostics
 #if DEBUG
 			Trace.TraceError(FormatExceptionMessage(exception, format, variables));
 #endif
-			if (string.IsNullOrWhiteSpace(_path)) _path = "Logs/Errors/";
+			if (string.IsNullOrWhiteSpace(_path)) _path = "Logs\\Errors\\";
 			string fileName = GetFullFileName(string.Format("{0}_error", GetFileName(_path)));
 			(new RequestException(string.Format(format, variables), exception, code, request == null ? null : new HttpDataItem
 				{
@@ -273,11 +282,16 @@ namespace Super_BE.Utilities.Diagnostics
 					Languages = request.UserLanguages,
 					HttpMethod = request.HttpMethod,
 					Ip = request.UserHostAddress,
-					IsMobile = request.Browser.IsMobileDevice,
+					IsMobile = request.Browser != null && request.Browser.IsMobileDevice,
 					Referer = request.UrlReferrer,
 					Url = request.Url,
-					User = _user
-				}, DateTime.Now, _user)).Save(fileName, TypeConvert.Json);
+					User = _user,
+					BrowserMajorVersion = request.Browser.MajorVersion,
+					BrowserMinorVersion = request.Browser.MinorVersion,
+					BrowserName = request.Browser.Browser,
+					BrowserPlatform = request.Browser.Platform,
+					BrowserCapacity = request.Browser.Win16 ? 16 : (request.Browser.Win32 ? 32 : 0)
+				}, DateTime.Now, _user)).Save(fileName, TypeConvert.Json, true);
 		}
 		#endregion Error.
 

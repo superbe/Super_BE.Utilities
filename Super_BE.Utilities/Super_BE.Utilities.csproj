@@ -48,12 +48,20 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Diagnostics\Attendance.cs" />
+    <Compile Include="Diagnostics\ErrorItem.cs" />
+    <Compile Include="Diagnostics\Errors.cs" />
+    <Compile Include="Diagnostics\ErrorsAggregator.cs" />
+    <Compile Include="Diagnostics\HttpAggregateItem.cs" />
+    <Compile Include="Diagnostics\HttpAggregates.cs" />
     <Compile Include="Diagnostics\HttpAggregator.cs" />
     <Compile Include="Diagnostics\HttpDataItem.cs" />
     <Compile Include="Diagnostics\ILogger.cs" />
     <Compile Include="Diagnostics\Logger.cs" />
+    <Compile Include="Diagnostics\Period.cs" />
     <Compile Include="Diagnostics\RequestException.cs" />
     <Compile Include="Drawing\Images.cs" />
     <Compile Include="Extensions\BinaryConvertExtension.cs" />

@@ -59,5 +59,30 @@ namespace Super_BE.Utilities.Diagnostics
 		/// Язык агента клиента.
 		/// </summary>
 		public string[] Languages { get; set; }
+
+		/// <summary>
+		/// Наименование браузера.
+		/// </summary>
+		public string BrowserName { get; set; }
+
+		/// <summary>
+		/// Старшая версия браузера.
+		/// </summary>
+		public double BrowserMajorVersion { get; set; }
+
+		/// <summary>
+		/// Младшая версия браузера.
+		/// </summary>
+		public double BrowserMinorVersion { get; set; }
+
+		/// <summary>
+		/// Платформа.
+		/// </summary>
+		public string BrowserPlatform { get; set; }
+
+		/// <summary>
+		/// Разрядность браузера компьютера.
+		/// </summary>
+		public int BrowserCapacity { get; set; }
 	}
 }
