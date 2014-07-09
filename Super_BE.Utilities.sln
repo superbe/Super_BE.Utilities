@@ -14,9 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4EB8EE
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Super_BE.Utilities.WWW", "Super_BE.Utilities.WWW\Super_BE.Utilities.WWW.csproj", "{C5A36044-D5C3-455D-9157-5D787F48986B}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
+		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://webserver:8080/tfs/super_be
 		SccLocalPath0 = .
@@ -26,6 +28,9 @@ Global
 		SccProjectUniqueName2 = Super_BE.Utilities.Tests\\Super_BE.Utilities.Tests.csproj
 		SccProjectName2 = Super_BE.Utilities.Tests
 		SccLocalPath2 = Super_BE.Utilities.Tests
+		SccProjectUniqueName3 = Super_BE.Utilities.WWW\\Super_BE.Utilities.WWW.csproj
+		SccProjectName3 = Super_BE.Utilities.WWW
+		SccLocalPath3 = Super_BE.Utilities.WWW
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +45,10 @@ Global
 		{5133D401-B6A3-4CCF-86B3-B5C54B4FF65D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5133D401-B6A3-4CCF-86B3-B5C54B4FF65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5133D401-B6A3-4CCF-86B3-B5C54B4FF65D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5A36044-D5C3-455D-9157-5D787F48986B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A36044-D5C3-455D-9157-5D787F48986B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5A36044-D5C3-455D-9157-5D787F48986B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5A36044-D5C3-455D-9157-5D787F48986B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
